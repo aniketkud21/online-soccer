@@ -21,7 +21,7 @@ const User = require("./models/user")
 
 // Port no
 require('dotenv').config()
-const port = process.env.PORT
+const port = process.env.PORT || 3000
 
 // Database and Passport configuration
 require("./config/database")
@@ -59,7 +59,7 @@ console.log("Passport configured");
 const onlineUsers = {}
 
 io.on('connection', (socket)=>{
-    //console.log("Socket connected ", socket.id);
+    console.log("Socket connected ", socket.id);
 
     socket.on('new-user-joined', (userId)=>{
         User.findById(userId)
@@ -79,7 +79,7 @@ io.on('connection', (socket)=>{
     })
 
     socket.on('send-message', (message)=>{
-        //console.log(message);
+        console.log(message);
         socket.broadcast.emit('receive-message', {message: message, name:onlineUsers[socket.id]})
     })
 })

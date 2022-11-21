@@ -162,7 +162,7 @@ router.post('/test/login', (req, res, next)=>{
                     res.cookie('jwt', tokenObject.signedToken, {
                         httpOnly:true
                     })
-                    res.send("sss")
+                    res.send(tokenObject)
                     //res.redirect('/lobby')
                     //return res.json({suceess:true, token:tokenObject.signedToken, expiresIn:tokenObject.expiresIn})
                 }

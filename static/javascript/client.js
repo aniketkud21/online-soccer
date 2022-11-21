@@ -2,7 +2,7 @@ const socket = io()
 
 const form = document.getElementById('send-container')
 const messageInp = document.getElementById('messageInp')
-const messageContainer = document.querySelector('.output')
+const messageContainer = document.querySelector('.output-text')
 const usersContainer = document.querySelector('.user-list')
 
 socket.emit('new-user-joined',userId)
@@ -33,7 +33,7 @@ form.addEventListener('submit', (e)=>{
 })
 
 socket.on('receive-message', (data)=>{
-    append(`${data.name} : ${data.message}`, 'left')
+    append(`${data.name.username} : ${data.message}`, 'left')
 })
 
 socket.on('online-users', (onlineUsers)=>{
