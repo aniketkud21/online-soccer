@@ -105,73 +105,73 @@ describe('Air Hockey Test', ()=>{
         })
     })
 
-    // succesful login
-    describe('Test6: Successful access',()=>{
-        it('Should return authorization token', (done)=>{
-            let credentials = {
-                username: "aniket",
-                password: "abcd"
-            }
-            chai.request(server)
-                .post('/test/login')
-                .send(credentials)
-                .end((err,resp)=>{
-                    resp.should.have.status(200)
-                    resp.body.should.be.a('object')
-                    resp.body.should.have.property('signedToken')
-                    resp.body.should.have.property('expiresIn')
-                    token = resp.body.signedToken
-                done()
-                })
-        })
-    })
+    // // succesful login
+    // describe('Test6: Successful access',()=>{
+    //     it('Should return authorization token', (done)=>{
+    //         let credentials = {
+    //             username: "aniket",
+    //             password: "abcd"
+    //         }
+    //         chai.request(server)
+    //             .post('/test/login')
+    //             .send(credentials)
+    //             .end((err,resp)=>{
+    //                 resp.should.have.status(200)
+    //                 resp.body.should.be.a('object')
+    //                 resp.body.should.have.property('signedToken')
+    //                 resp.body.should.have.property('expiresIn')
+    //                 token = resp.body.signedToken
+    //             done()
+    //             })
+    //     })
+    // })
 
-    // return username
-    describe('Test7: Username on successful login',()=>{
-        it('Should return correct username', (done)=>{
-            chai.request(server)
-                .get('/test/lobby')
-                .set('Cookie', 'jwt='+token)
-                .end((err,resp)=>{
-                    resp.should.have.status(200)
-                    resp.text.should.be.eq('aniket')
-                done()
-                })
-        })
-    })
+    // // return username
+    // describe('Test7: Username on successful login',()=>{
+    //     it('Should return correct username', (done)=>{
+    //         chai.request(server)
+    //             .get('/test/lobby')
+    //             .set('Cookie', 'jwt='+token)
+    //             .end((err,resp)=>{
+    //                 resp.should.have.status(200)
+    //                 resp.text.should.be.eq('aniket')
+    //             done()
+    //             })
+    //     })
+    // })
 
-    // Leaderboard test
-    describe('Test8: Leaderboard',()=>{
-        it('Should return leaderboard array', (done)=>{
-            chai.request(server)
-                .get('/test/leaderboard')
-                .end((err,resp)=>{
-                    resp.should.have.status(200)
-                    resp.body.should.be.a('array')
-                    resp.body.length.should.be.eq(5)
-                done()
-                })
-        })
-    })
+    // // Leaderboard test
+    // describe('Test8: Leaderboard',()=>{
+    //     it('Should return leaderboard array', (done)=>{
+    //         chai.request(server)
+    //             .get('/test/leaderboard')
+    //             .end((err,resp)=>{
+    //                 resp.should.have.status(200)
+    //                 resp.body.should.be.a('array')
+    //                 resp.body.length.should.be.eq(5)
+    //             done()
+    //             })
+    //     })
+    // })
 
-    // Personal Stats Test
-    describe('Test9: Personal Stats',()=>{
-        it('Should return personal stats object', (done)=>{
-            chai.request(server)
-                .get('/test/personalStats')
-                .set('Cookie', 'jwt='+token)
-                .end((err,resp)=>{
-                    resp.should.have.status(200)
-                    resp.body.should.be.a('object')
-                    resp.body.should.have.property('username')
-                    resp.body.should.have.property('games')
-                    resp.body.should.have.property('wins')
-                    resp.body.should.have.property('loss')
-                    resp.body.should.have.property('points')
-                done()
-                })
-        })
-    })    
+    // // Personal Stats Test
+    // describe('Test9: Personal Stats',()=>{
+    //     it('Should return personal stats object', (done)=>{
+    //         chai.request(server)
+    //             .get('/test/personalStats')
+    //             .set('Cookie', 'jwt='+token)
+    //             .end((err,resp)=>{
+    //                 resp.should.have.status(200)
+    //                 resp.body.should.be.a('object')
+    //                 resp.body.should.have.property('username')
+    //                 resp.body.should.have.property('games')
+    //                 resp.body.should.have.property('wins')
+    //                 resp.body.should.have.property('loss')
+    //                 resp.body.should.have.property('points')
+    //             done()
+    //             })
+    //     })
+    // })    
 
     // Game Test
     describe('Test10: Game',()=>{
