@@ -14,8 +14,8 @@ chai.should()
 
 chai.use(chaiHttp)
 
-let userId1 = '637a327d8f09ccf53cd037fe'
-let userId2 = '637a381df64f8eee66db0b36'
+let userId1 = '637b1f3e16ddd54395a6581a'
+let userId2 = '637b1f6816ddd54395a6581d'
 let token
 
 describe('Air Hockey Test', ()=>{

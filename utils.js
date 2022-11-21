@@ -2,7 +2,8 @@ const bcrypt = require('bcrypt')
 const jsonwebtoken = require('jsonwebtoken')
 
 require('dotenv').config()
-const PRIV_KEY = process.env.PRIV_KEY
+// const PRIV_KEY = process.env.PRIV_KEY
+PRIV_KEY ="dnjsfdoisfmnjdxznfkc"
 
 const genSalt = async()=>{
     const salt = await bcrypt.genSalt(10)
