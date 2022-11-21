@@ -3,6 +3,8 @@ const User = require('../models/user')
 
 require('dotenv').config()
 
+PRIV_KEY ="dnjsfdoisfmnjdxznfkc"
+
 const cookieExtractor = (req,res)=>{
     var token = null
     if(req && req.cookies){
@@ -14,7 +16,7 @@ const cookieExtractor = (req,res)=>{
 
 const options = {
     jwtFromRequest : cookieExtractor,
-    secretOrKey : process.env.PRIV_KEY
+    secretOrKey : PRIV_KEY 
 }
 
 module.exports = (passport)=>{
