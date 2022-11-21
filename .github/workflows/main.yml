@@ -22,8 +22,8 @@ jobs:
       - name: Run Build
         run: npm run build --if-present
 
-      - name: Run test
-        run : npm test
+      #- name: Run test
+      #  run : npm test
   
   deploy:
     runs-on: ubuntu-latest
@@ -35,5 +35,9 @@ jobs:
           heroku_api_key: 'b62b0e9f-1314-438f-9d36-2a73d5f07bbc'
           heroku_app_name: 'online-soccer'
           heroku_email: 'aniketkud22@gmail.com'
+        env:
+          PORT: 3000
+          DB_URL: mongodb+srv://aniket:aniket@cluster0.9m93xjz.mongodb.net/test
+          PRIV_KEY: dnjsfdoisfmnjdxznfkc
 
 
