@@ -39,58 +39,58 @@ describe('Air Hockey Test', ()=>{
     // })
 
     // user already exists
-    describe('Test2: Registration',()=>{
-        it('Should return User already exists', (done)=>{
-            let credentials = {
-                username: "aniket",
-                password: "abcd"
-            }
-            chai.request(server)
-                .post('/test/register')
-                .send(credentials)
-                .end((err,resp)=>{
-                    resp.should.have.status(403)
-                    resp.text.should.be.eq('User already exists')
-                done()
-                })
-        })
-    })
+    // describe('Test2: Registration',()=>{
+    //     it('Should return User already exists', (done)=>{
+    //         let credentials = {
+    //             username: "aniket",
+    //             password: "abcd"
+    //         }
+    //         chai.request(server)
+    //             .post('/test/register')
+    //             .send(credentials)
+    //             .end((err,resp)=>{
+    //                 resp.should.have.status(403)
+    //                 resp.text.should.be.eq('User already exists')
+    //             done()
+    //             })
+    //     })
+    // })
 
     // non existent user
-    describe('Test3: Login Username',()=>{
-        it('Should return Cant find user', (done)=>{
-            let credentials = {
-                username: "ramesh",
-                password: "abcd"
-            }
-            chai.request(server)
-                .post('/test/login')
-                .send(credentials)
-                .end((err,resp)=>{
-                    resp.should.have.status(404)
-                    resp.text.should.be.eq('Cant find user')
-                done()
-                })
-        })
-    })
+    // describe('Test3: Login Username',()=>{
+    //     it('Should return Cant find user', (done)=>{
+    //         let credentials = {
+    //             username: "ramesh",
+    //             password: "abcd"
+    //         }
+    //         chai.request(server)
+    //             .post('/test/login')
+    //             .send(credentials)
+    //             .end((err,resp)=>{
+    //                 resp.should.have.status(404)
+    //                 resp.text.should.be.eq('Cant find user')
+    //             done()
+    //             })
+    //     })
+    // })
 
-     // incorrect password
-     describe('Test4: Login Password',()=>{
-        it('Should return Incorrect Password', (done)=>{
-            let credentials = {
-                username: "aniket",
-                password: "abcd2"
-            }
-            chai.request(server)
-                .post('/test/login')
-                .send(credentials)
-                .end((err,resp)=>{
-                    resp.should.have.status(401)
-                    resp.text.should.be.eq('Incorrect Password')
-                done()
-                })
-        })
-    })
+    //  // incorrect password
+    //  describe('Test4: Login Password',()=>{
+    //     it('Should return Incorrect Password', (done)=>{
+    //         let credentials = {
+    //             username: "aniket",
+    //             password: "abcd2"
+    //         }
+    //         chai.request(server)
+    //             .post('/test/login')
+    //             .send(credentials)
+    //             .end((err,resp)=>{
+    //                 resp.should.have.status(401)
+    //                 resp.text.should.be.eq('Incorrect Password')
+    //             done()
+    //             })
+    //     })
+    // })
 
     // unauthorized
     describe('Test5: Unauthorized access',()=>{
