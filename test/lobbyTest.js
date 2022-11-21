@@ -20,23 +20,23 @@ let token
 
 describe('Air Hockey Test', ()=>{
 
-    describe('Test1: Chat functionality',()=>{
-        it('Should be able to send and recieve message', (done)=>{
-            const client1 = io.connect(socketUrl)
-            client1.on('connect', ()=>{
-                client1.emit('new-user-joined', (userId1) )
-                const client2 = io.connect(socketUrl,options)
-                client2.on('connect',()=>{
-                    client2.emit('new-user-joined', (userId2) )
-                    client1.emit('send-message', "Test string")
-                    client2.on('receive-message', (res)=>{
-                        chai.expect(res.message).to.equal('Test string')
-                        done()
-                    })
-                })
-            })
-        })
-    })
+    // describe('Test1: Chat functionality',()=>{
+    //     it('Should be able to send and recieve message', (done)=>{
+    //         const client1 = io.connect(socketUrl)
+    //         client1.on('connect', ()=>{
+    //             client1.emit('new-user-joined', (userId1) )
+    //             const client2 = io.connect(socketUrl,options)
+    //             client2.on('connect',()=>{
+    //                 client2.emit('new-user-joined', (userId2) )
+    //                 client1.emit('send-message', "Test string")
+    //                 client2.on('receive-message', (res)=>{
+    //                     chai.expect(res.message).to.equal('Test string')
+    //                     done()
+    //                 })
+    //             })
+    //         })
+    //     })
+    // })
 
     // user already exists
     describe('Test2: Registration',()=>{
