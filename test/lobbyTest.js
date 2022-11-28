@@ -148,7 +148,7 @@ describe('Air Hockey Test', ()=>{
                 .end((err,resp)=>{
                     resp.should.have.status(200)
                     resp.body.should.be.a('array')
-                    resp.body.length.should.be.eq(5)
+                    resp.body.length.should.be.eq(10)
                 done()
                 })
         })
