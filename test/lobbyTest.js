@@ -39,7 +39,7 @@ describe('Air Hockey Test', ()=>{
     // })
 
     // user already exists
-    describe('Test2: Registration',()=>{
+    describe('Test1: Registration',()=>{
         it('Should return User already exists', (done)=>{
             let credentials = {
                 username: "aniket",
@@ -57,7 +57,7 @@ describe('Air Hockey Test', ()=>{
     })
 
     // non existent user
-    describe('Test3: Login Username',()=>{
+    describe('Test2: Login Username',()=>{
         it('Should return Cant find user', (done)=>{
             let credentials = {
                 username: "ramesh",
@@ -75,7 +75,7 @@ describe('Air Hockey Test', ()=>{
     })
 
      // incorrect password
-     describe('Test4: Login Password',()=>{
+     describe('Test3: Login Password',()=>{
         it('Should return Incorrect Password', (done)=>{
             let credentials = {
                 username: "aniket",
@@ -93,7 +93,7 @@ describe('Air Hockey Test', ()=>{
     })
 
     // unauthorized
-    describe('Test5: Unauthorized access',()=>{
+    describe('Test4: Unauthorized access',()=>{
         it('Should return unauthorized', (done)=>{
             chai.request(server)
                 .get('/test/lobby')
@@ -106,7 +106,7 @@ describe('Air Hockey Test', ()=>{
     })
 
     // succesful login
-    describe('Test6: Successful access',()=>{
+    describe('Test5: Successful access',()=>{
         it('Should return authorization token', (done)=>{
             let credentials = {
                 username: "aniket",
@@ -127,7 +127,7 @@ describe('Air Hockey Test', ()=>{
     })
 
     // return username
-    describe('Test7: Username on successful login',()=>{
+    describe('Test6: Username on successful login',()=>{
         it('Should return correct username', (done)=>{
             chai.request(server)
                 .get('/test/lobby')
@@ -141,21 +141,21 @@ describe('Air Hockey Test', ()=>{
     })
 
     // Leaderboard test
-    describe('Test8: Leaderboard',()=>{
+    describe('Test7: Leaderboard',()=>{
         it('Should return leaderboard array', (done)=>{
             chai.request(server)
                 .get('/test/leaderboard')
                 .end((err,resp)=>{
                     resp.should.have.status(200)
                     resp.body.should.be.a('array')
-                    resp.body.length.should.be.eq(10)
+                    resp.body.length.should.be.eq(11)
                 done()
                 })
         })
     })
 
     // Personal Stats Test
-    describe('Test9: Personal Stats',()=>{
+    describe('Test8: Personal Stats',()=>{
         it('Should return personal stats object', (done)=>{
             chai.request(server)
                 .get('/test/personalStats')
@@ -174,7 +174,7 @@ describe('Air Hockey Test', ()=>{
     })    
 
     // Game Test
-    describe('Test10: Game',()=>{
+    describe('Test9: Game',()=>{
         it('Should successfully enter in game', (done)=>{
             chai.request(server)
                 .get('/test/game')
